@@ -9,11 +9,11 @@
  * See the file COPYING for details.
  **/
 
-package dev.unexist.showcase.todo.infrastructure.repository.todo;
+package dev.unexist.showcase.todo.domain.todo.repository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import dev.unexist.showcase.todo.domain.model.todo.Todo;
+import dev.unexist.showcase.todo.domain.todo.model.Todo;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.util.ArrayList;

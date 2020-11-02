@@ -11,6 +11,7 @@
 
 package dev.unexist.showcase.todo.domain.todo.repository;
 
+import dev.unexist.showcase.todo.infrastructure.stereotypes.Repository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import dev.unexist.showcase.todo.domain.todo.model.Todo;
@@ -21,6 +22,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 @ApplicationScoped
 public class TodoRepository {
     private static final Logger LOGGER = LoggerFactory.getLogger(TodoRepository.class);

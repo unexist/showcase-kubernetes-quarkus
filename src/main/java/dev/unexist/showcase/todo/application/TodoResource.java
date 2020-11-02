@@ -11,6 +11,7 @@
 
 package dev.unexist.showcase.todo.application;
 
+import dev.unexist.showcase.todo.infrastructure.stereotypes.ApplicationService;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -36,6 +37,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.Optional;
 
+@ApplicationService
 @Path("/todo")
 public class TodoResource {
 

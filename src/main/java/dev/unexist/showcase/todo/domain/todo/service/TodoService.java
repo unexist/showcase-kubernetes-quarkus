@@ -14,12 +14,14 @@ package dev.unexist.showcase.todo.domain.todo.service;
 import dev.unexist.showcase.todo.domain.todo.model.Todo;
 import dev.unexist.showcase.todo.domain.todo.model.TodoBase;
 import dev.unexist.showcase.todo.domain.todo.repository.TodoRepository;
+import dev.unexist.showcase.todo.infrastructure.stereotypes.DomainService;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.util.List;
 import java.util.Optional;
 
+@DomainService
 @ApplicationScoped
 public class TodoService {
 

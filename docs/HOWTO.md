@@ -101,10 +101,21 @@ crictl images
 kubectl get pods --all-namespaces
 ```
 
+## Get all namespaces
+```Shell
+kubectl get namespace
+```
+
 ## Get info about a pod
 
 ```Shell
 kubectl describe pod quarkus-helm
+```
+
+## Forward local port to service
+
+```Shell
+kubectl port-forward --namespace default service/loki-grafana 3000:80
 ```
 
 ## Deploy image as pod
@@ -185,10 +196,44 @@ spec:
 EOF
 ```
 
+# Loki
+
+## Add loki to helm
+
+```Shell
+helm repo add loki https://grafana.github.io/loki/charts
+```
+
+## Install loki
+
+```Shell
+helm upgrade --install loki loki/loki-stack
+```
+
+# Grafana
+
+## Add grafana to helm
+
+```Shell
+helm repo add grafana https://grafana.github.io/helm-charts
+```
+
+## Install grafana
+
+```Shell
+gelm install loki-grafana grafana/grafana
+```
+
+## Get password for grafana
+
+```Shell
+kubectl get secret --namespace default loki-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+```
+
 # Links
 
 [https://quarkus.io/guides/container-image]
 [https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md]
+[https://github.com/grafana/helm-charts]
 
 
-Failed to pull image "unexist/quarkus-kind-mp-showcase:1.16.0": rpc error: code = Unknown desc = failed to pull and unpack image "docker.io/unexist/quarkus-kind-mp-showcase:1.16.0": failed to resolve reference "docker.io/unexist/quarkus-kind-mp-showcase:1.16.0": pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed

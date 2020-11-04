@@ -32,6 +32,10 @@ kind create cluster --name vanderlande
 kind load docker-image docker.io/unexist/quarkus-kind-mp-showcase:0.1 --name vanderlande
 ```
 
+# Helm
+
+
+
 # Docker
 
 ## See running container
@@ -39,6 +43,19 @@ kind load docker-image docker.io/unexist/quarkus-kind-mp-showcase:0.1 --name van
 ```Bash
 docker ps -a
 ```
+
+## See loaded images
+
+```Shell
+docker exec -it vanderlande-control-plane crictl images
+```
+
+## Shell inside of docker
+
+```Bash
+docker exec -ti nodename bash
+```
+
 
 # Kubernetes
 
@@ -49,7 +66,11 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/a
 kubectl proxy
 ```
 
-## Add user for dashboard
+## Dashboard
+
+[http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/]
+
+### Add user for dashboard
 
 ```Bash
 cat <<EOF | kubectl apply -f -
@@ -87,18 +108,16 @@ kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboar
 Copy token and log in
  [here](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login)
 
-## See loaded images
-
-```Shell
-kubectl get nodes
-docker exec -ti nodename bash
-crictl images
-```
-
 ## Get all pods
 
 ```Shell
 kubectl get pods --all-namespaces
+```
+
+## Get all nodes
+
+```Bash
+kubectl get nodes
 ```
 
 ## Get all namespaces
@@ -235,5 +254,6 @@ kubectl get secret --namespace default loki-grafana -o jsonpath="{.data.admin-pa
 [https://quarkus.io/guides/container-image]
 [https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md]
 [https://github.com/grafana/helm-charts]
+[https://grafana.com/docs/loki/latest/installation/helm/]
 
 

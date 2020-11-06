@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "15596508-7eba-425c-af16-d1daac036b18",
+		"name": "Todo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all todos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b7edbcdc-553b-49c9-adf8-9b1c4456be9c",
+						"exec": [
+							"pm.test(\"Get all todos\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/todo/todo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"todo",
+						"todo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new todo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c8a7b5c0-7671-4f29-9430-0310b43f3bcf",
+						"exec": [
+							"pm.test(\"Create todo\", function () {",
+							"   pm.response.to.have.status(201); ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Test Test\",\n  \"done\": false,\n  \"dueDate\": {\n    \"due\": \"2020-11-05\",\n    \"start\": \"2020-11-05\"\n  },\n  \"title\": \"Test\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/todo/todo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"todo",
+						"todo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Load todo with id 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e5401a90-2b2f-452b-9d34-ae7acef1a25a",
+						"exec": [
+							"pm.test(\"Load todo\", function () {",
+							"   pm.response.to.have.status(200); ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/todo/todo/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"todo",
+						"todo",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

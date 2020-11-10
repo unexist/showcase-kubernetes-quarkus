@@ -13,6 +13,8 @@ package dev.unexist.showcase.todo.domain.todo.repository;
 
 import dev.unexist.showcase.todo.domain.todo.model.Todo;
 import dev.unexist.showcase.todo.infrastructure.stereotypes.Repository;
+import org.eclipse.microprofile.metrics.MetricUnits;
+import org.eclipse.microprofile.metrics.annotation.Gauge;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -121,5 +123,10 @@ public class TodoRepository {
         return this.list.stream()
                 .filter(t -> t.getId() == id)
                 .findFirst();
+    }
+
+    @Gauge(name = "numTodos", unit = MetricUnits.NONE, description = "Number of todos")
+    public int numTodos() {
+        return this.list.size();
     }
 }

@@ -8,7 +8,7 @@ mvn io.quarkus:quarkus-maven-plugin:1.9.1.Final:create \
 -DprojectArtifactId=quarkus-kind-mp-showcase \
 -DprojectVersion=0.1 \
 -DclassName="dev.unexist.showcase.todo.TodoResource" \
--Dextension="health smyllrye-metrics quarkus-smallrye-opentracing quarkus-smallrye-openapi container-image-jib kubernetes"
+-Dextensions="health, smyllrye-metrics, quarkus-smallrye-opentracing, quarkus-smallrye-openapi, container-image-jib, kubernetes"
 ```
 
 ## Build docker image
@@ -39,7 +39,7 @@ kind create cluster --name vanderlande
 cat <<EOF | kind create cluster --name vanderlande --config=-
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
-nodes:
+nodes:cluster --all
 - role: control-plane
   kubeadmConfigPatches:
   - |

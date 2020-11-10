@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  name: todo-ingress
+spec:
+  rules:
+  - host: ""
+    http:
+      paths:
+      - backend:
+          serviceName: quarkus-kind-mp-showcase
+          servicePort: 8080
+        path: /todo(/|$)(.*)

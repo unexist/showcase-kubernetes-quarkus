@@ -33,6 +33,17 @@ k8s-token:
 	$(eval TOKENNAME := $(shell kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $$1}'))
 	
 	kubectl -n kubernetes-dashboard describe secret $(TOKENNAME)
+	
+# Prometheus
+prom-install:
+	docker pull prom/prometheus
+	
+	kubectl apply -f ./manifests/prom-install.yml
+	kubectl apply -f ./manifests/prom-configmap.yml
+		
+prom-uninstall:
+	kubectl delete -f ./manifests/prom-install.yml	
+		kubectl delete -f ./manifests/prom-configmap.yml	
 
 # Ingress
 ingress-install:
@@ -50,15 +61,17 @@ ingress-todo:
 ingress-dashboard:
 	kubectl apply -f ./manifests/dashboard-ingress.yml
 	
+ingress-prom:
+	kubectl apply -f ./manifests/prom-ingress.yml
+		
 # Docker
 docker-cricr-images:
 	docker exec -it $(CLUSTER)-control-plane crictl images
 
 docker-images:
 	docker images
-
+	
 # Compund
 install: kind-create k8s-dashboard ingress-install ingress-configure ingress-dashboard
 	
-uninstall: kind-delete
-	
+uninstall: kind-delete	

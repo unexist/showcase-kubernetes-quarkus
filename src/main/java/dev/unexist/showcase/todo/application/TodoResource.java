@@ -21,6 +21,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -48,6 +49,7 @@ public class TodoResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "Create new todo")
+    @Tag(name = "Todo")
     @APIResponses({
             @APIResponse(responseCode = "201", description = "Todo created"),
             @APIResponse(responseCode = "406", description = "Bad data"),
@@ -68,6 +70,7 @@ public class TodoResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "Get all todos")
+    @Tag(name = "Todo")
     @APIResponses({
             @APIResponse(responseCode = "200", description = "List of todo", content =
                 @Content(schema = @Schema(type = SchemaType.ARRAY, implementation = Todo.class))),
@@ -92,6 +95,7 @@ public class TodoResource {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "Get todo by id")
+    @Tag(name = "Todo")
     @APIResponses({
             @APIResponse(responseCode = "200", description = "Todo found", content =
                 @Content(schema = @Schema(implementation = Todo.class))),
@@ -117,6 +121,7 @@ public class TodoResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "Update todo by id")
+    @Tag(name = "Todo")
     @APIResponses({
             @APIResponse(responseCode = "204", description = "Todo updated"),
             @APIResponse(responseCode = "404", description = "Todo not found"),
@@ -139,6 +144,7 @@ public class TodoResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "Delete todo by id")
+    @Tag(name = "Todo")
     public Response delete(@PathParam("id") int id, TodoBase base) {
         Response.ResponseBuilder response;
 

@@ -25,7 +25,7 @@ import javax.ws.rs.core.Application;
     },
     info = @Info(
         title = "Todo Service",
-        version = "0.5",
+        version = "0.7",
         contact = @Contact(
             name = "Christoph Kappel",
             url = "https://unexist.dev",

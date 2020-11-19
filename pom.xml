@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>dev.unexist.showcase</groupId>
     <artifactId>quarkus-kind-mp-showcase</artifactId>
-    <version>0.5</version>
+    <version>0.7</version>
     <properties>
         <compiler-plugin.version>3.8.1</compiler-plugin.version>
         <maven.compiler.parameters>true</maven.compiler.parameters>
@@ -22,6 +22,9 @@
         <spotbugs-plugin.version>4.1.4</spotbugs-plugin.version>
         <jib-maven-plugin.version>2.6.0</jib-maven-plugin.version>
 
+        <!-- Workaround to get the timestamp -->
+        <timestamp>${maven.build.timestamp}</timestamp>
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -59,6 +62,10 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-kubernetes</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-container-image-jib</artifactId>
         </dependency>
 
         <!-- Testing -->
@@ -112,34 +119,6 @@
                 </configuration>
             </plugin>
 
-            <!-- Jib -->
-            <plugin>
-                <groupId>com.google.cloud.tools</groupId>
-                <artifactId>jib-maven-plugin</artifactId>
-                <version>${jib-maven-plugin.version}</version>
-                <configuration>
-                    <to>
-                        <image>unexist/${project.name}:${project.version}</image>
-                    </to>
-                    <container>
-                        <mainClass>dev.unexist.showcase.todo.application.RestApplication</mainClass>
-                        <labels>
-                            <org.opencontainers.image.version>${project.version}</org.opencontainers.image.version>
-                            <org.opencontainers.image.licenses>GPLv2</org.opencontainers.image.licenses>
-                        </labels>
-                        <format>Docker</format>
-                    </container>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
             <!-- Audit -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -186,6 +165,16 @@
                 </executions>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>application.properties</include>
+                </includes>
+
+            </resource>
+        </resources>
     </build>
     <profiles>
         <profile>

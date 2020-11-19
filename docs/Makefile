@@ -1,7 +1,7 @@
 CLUSTER := "vanderlande"
 
 # Quarkus
-build-todo:
+quarkus-build:
 	cd .. && mvn clean package -Dquarkus.container-image.build=true #-Dquarkus.container-image.push=true
 
 # Kind	

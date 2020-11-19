@@ -73,7 +73,12 @@ docker-cricr-images:
 
 docker-images:
 	docker images
-	
+
+docker-labels:
+	$(eval LATEST := $(shell docker images --format "{{ .Repository}}:{{ .Tag }}" | head -n1))
+
+	docker image inspect $(LATEST) | jq -r ".[0].Config.Labels"
+
 # Compund
 install: kind-create k8s-dashboard ingress-install ingress-configure ingress-dashboard
 	

@@ -20,7 +20,6 @@
         <checkstyle-plugin.version>3.1.1</checkstyle-plugin.version>
         <spotbugs-maven-plugin.version>4.1.3</spotbugs-maven-plugin.version>
         <spotbugs-plugin.version>4.1.4</spotbugs-plugin.version>
-        <jib-maven-plugin.version>2.6.0</jib-maven-plugin.version>
 
         <!-- Workaround to get the timestamp -->
         <timestamp>${maven.build.timestamp}</timestamp>
@@ -165,6 +164,8 @@
                 </executions>
             </plugin>
         </plugins>
+
+        <!-- Replace placeholder in application.properties -->
         <resources>
             <resource>
                 <filtering>true</filtering>
@@ -172,7 +173,6 @@
                 <includes>
                     <include>application.properties</include>
                 </includes>
-
             </resource>
         </resources>
     </build>

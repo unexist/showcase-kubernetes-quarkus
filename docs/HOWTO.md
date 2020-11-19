@@ -36,10 +36,10 @@ kind create cluster --name vanderlande
 ## Cluster for ingress
 
 ```Bash
-cat <<EOF | kind create cluster --name vanderlande --config=-
+cat <<EOF | kind create cluster --name example --config=-
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
-nodes:cluster --all
+nodes:
 - role: control-plane
   kubeadmConfigPatches:
   - |
@@ -86,7 +86,7 @@ docker exec -it vanderlande-control-plane crictl rmi 5340267d15456
 ## Shell inside of docker
 
 ```Bash
-docker exec -ti nodename bash
+docker exec -ti container bash
 ```
 
 # Kubernetes

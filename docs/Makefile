@@ -49,6 +49,9 @@ prom-uninstall:
 ingress-install:
 	kubectl apply -f ./manifests/ingress-install.yml
 	
+ingress-helm-install:
+	helm install --generate-name nginx-stable/nginx-ingress
+	
 ingress-configure:
 	kubectl wait --namespace ingress-nginx \
 		--for=condition=ready pod \

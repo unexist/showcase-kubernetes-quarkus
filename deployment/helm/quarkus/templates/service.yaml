@@ -1,15 +1,21 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "quarkus.fullname" . }}
+  annotations:
+    prometheus.io/path: /metrics
+    prometheus.io/port: "8080"
+    app.quarkus.io/build-timestamp: 2020-12-03 - 16:42:52 +0000
+    prometheus.io/scrape: "true"
   labels:
-    {{- include "quarkus.labels" . | nindent 4 }}
+    app.kubernetes.io/name: quarkus-kind-mp-showcase
+    app.kubernetes.io/version: "0.8"
+  name: quarkus-kind-mp-showcase
 spec:
-  type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
+  - name: http
+    port: 8080
+    targetPort: 8080
   selector:
-    {{- include "quarkus.selectorLabels" . | nindent 4 }}
+    app.kubernetes.io/name: quarkus-kind-mp-showcase
+    app.kubernetes.io/version: "0.8"
+  type: ClusterIP

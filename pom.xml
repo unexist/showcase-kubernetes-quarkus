@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>dev.unexist.showcase</groupId>
     <artifactId>quarkus-kind-mp-showcase</artifactId>
-    <version>0.7</version>
+    <version>0.8</version>
     <properties>
         <compiler-plugin.version>3.8.1</compiler-plugin.version>
         <maven.compiler.parameters>true</maven.compiler.parameters>
@@ -24,7 +24,7 @@
         <helm-plugin.version>5.6</helm-plugin.version>
 
         <!-- Helm -->
-        <chartName>${project.artifactId}</chartName>
+        <chartName>quarkus</chartName>
         <skipSnapshotChart>false</skipSnapshotChart>
         <helmVersion>2.16.1</helmVersion>
         <chartRepoUsername>x</chartRepoUsername>
@@ -134,7 +134,7 @@
                 <artifactId>helm-maven-plugin</artifactId>
                 <version>${helm-plugin.version}</version>
                 <configuration>
-                    <chartDirectory>src/main/helm/${chartName}</chartDirectory>
+                    <chartDirectory>deployment/helm/${chartName}</chartDirectory>
                     <chartVersion>${project.version}</chartVersion>
 
                     <uploadRepoStable>

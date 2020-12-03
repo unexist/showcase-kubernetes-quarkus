@@ -15,6 +15,15 @@ jib: clean
 docker: clean
 	mvn package -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true
 
+manifest:
+	@csplit -k --suppress-matched -z --prefix=MANIFEST target/kubernetes/kubernetes.yml "/^---$$/" "{*}"
+
+	@mv -f MANIFEST00 deployment/helm/quarkus/templates/service.yaml
+	@mv -f MANIFEST01 deployment/helm/quarkus/templates/deployment.yaml
+
+helm: jib manifest
+	mvn helm:package
+
 .PHONY: docs
 docs:
 	mvn -f docs/pom.xml generate-resources

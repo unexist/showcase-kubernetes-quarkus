@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "quarkus-helm.fullname" . }}
+  name: {{ include "quarkus.fullname" . }}
   labels:
-    {{- include "quarkus-helm.labels" . | nindent 4 }}
+    {{- include "quarkus.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "quarkus-helm.selectorLabels" . | nindent 6 }}
+      {{- include "quarkus.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "quarkus-helm.selectorLabels" . | nindent 8 }}
+        {{- include "quarkus.selectorLabels" . | nindent 8 }}
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
     {{- end }}
-      serviceAccountName: {{ include "quarkus-helm.serviceAccountName" . }}
+      serviceAccountName: {{ include "quarkus.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:

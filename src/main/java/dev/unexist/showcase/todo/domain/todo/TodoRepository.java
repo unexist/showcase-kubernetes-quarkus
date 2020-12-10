@@ -9,9 +9,8 @@
  * See the file COPYING for details.
  **/
 
-package dev.unexist.showcase.todo.domain.todo.repository;
+package dev.unexist.showcase.todo.domain.todo;
 
-import dev.unexist.showcase.todo.domain.todo.model.Todo;
 import dev.unexist.showcase.todo.infrastructure.stereotypes.Repository;
 import org.eclipse.microprofile.metrics.MetricUnits;
 import org.eclipse.microprofile.metrics.annotation.Gauge;

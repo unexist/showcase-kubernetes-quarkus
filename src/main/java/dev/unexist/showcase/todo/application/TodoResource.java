@@ -11,9 +11,9 @@
 
 package dev.unexist.showcase.todo.application;
 
-import dev.unexist.showcase.todo.domain.todo.model.Todo;
-import dev.unexist.showcase.todo.domain.todo.model.TodoBase;
-import dev.unexist.showcase.todo.domain.todo.service.TodoService;
+import dev.unexist.showcase.todo.domain.todo.Todo;
+import dev.unexist.showcase.todo.domain.todo.TodoBase;
+import dev.unexist.showcase.todo.domain.todo.TodoService;
 import dev.unexist.showcase.todo.infrastructure.stereotypes.ApplicationService;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;

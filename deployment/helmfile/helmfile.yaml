@@ -1,0 +1,33 @@
+repositories:
+  - name: stable
+    url: https://charts.helm.sh/stable
+
+releases:
+  - name: quarkus
+    chart: ./charts/app
+    values:
+      - ./values/quarkus.yaml
+
+  # https://hub.docker.com/r/swaggerapi/swagger-ui
+  - name: swagger-ui
+    chart: ./charts/swagger-asyncapi
+    values:
+      - ./values/swagger-ui.yaml
+
+  # https://hub.docker.com/r/lindhe/asyncapi-playground
+  - name: asyncapi-playground
+    chart: ./charts/swagger-asyncapi
+    values:
+      - ./values/asyncapi-playground.yaml
+
+  # https://hub.docker.com/_/postgres
+  - name: postgres
+    chart: ./charts/postgres
+    values:
+      - ./values/postgres.yaml
+
+  # https://hub.docker.com/r/pactfoundation/pact-broker/
+  - name: pact
+    chart: ./charts/pact
+    values:
+      - ./values/pact.yaml

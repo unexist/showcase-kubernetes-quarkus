@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "swagger-asyncapi.fullname" . }}-configmap
+  labels:
+    {{- include "swagger-asyncapi.labels" . | nindent 4 }}
+data:
+  swagger-config.yaml: |
+    urls:
+      - name: Petstore
+        url: "https://petstore.swagger.io/v2/swagger.json"
+      - name: Quarkus,
+        url: "quarkus-kind-mp-showcase:8080/openapi"

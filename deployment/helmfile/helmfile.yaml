@@ -26,8 +26,14 @@ releases:
     values:
       - ./values/postgres.yaml
 
-  # https://hub.docker.com/r/pactfoundation/pact-broker/
+  # https://hub.docker.com/r/pactfoundation/pact-broker
   - name: pact
     chart: ./charts/pact
     values:
       - ./values/pact.yaml
+
+  # https://hub.docker.com/r/prom/prometheus
+  - name: prometheus
+    chart: ./charts/prometheus
+    values:
+      - ./values/prometheus.yaml

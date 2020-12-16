@@ -48,13 +48,13 @@ config:
     - key: PACT_BROKER_DATABASE_ADAPTER
       value: postgres
     - key: PACT_BROKER_DATABASE_HOST
-      value: postgres
+      value: {{ .Environment.Values.pact.database.host }}
     - key: PACT_BROKER_DATABASE_NAME
-      value:  {{ .Environment.Values.pact.database }}
+      value:  {{ .Environment.Values.pact.database.name }}
     - key: PACT_BROKER_DATABASE_USERNAME
-      value:  {{ .Environment.Values.pact.username }}
+      value:  {{ .Environment.Values.pact.database.username }}
     - key: PACT_BROKER_DATABASE_PASSWORD
-      value:  {{ .Environment.Values.pact.password }}
+      value:  {{ .Environment.Values.pact.database.password }}
 
 ingress:
   enabled: false

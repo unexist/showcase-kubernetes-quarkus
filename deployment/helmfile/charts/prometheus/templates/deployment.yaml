@@ -41,7 +41,7 @@ spec:
           volumeMounts:
             - name: config-volume
               mountPath: /etc/prometheus
-            - name: data
+            - name: data-volume
               mountPath: /prometheus
           ports:
             - containerPort: {{ .Values.container.port }}
@@ -51,7 +51,7 @@ spec:
         - name: config-volume
           configMap:
             name: {{ include "prometheus.fullname" . }}-configmap
-        - name: data
+        - name: data-volume
           emptyDir: {}
       {{- with .Values.nodeSelector }}
       nodeSelector:

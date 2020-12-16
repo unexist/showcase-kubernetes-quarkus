@@ -2,6 +2,13 @@ postgres:
   username: test
   password: test
 pact:
-  database: pact
-  username: test
+  database:
+    host: postgres
+    name: pact
+    username: test
+    password: test
+grafana:
   password: test
+  prometheus:
+    host: prometheus
+    port: "9090"

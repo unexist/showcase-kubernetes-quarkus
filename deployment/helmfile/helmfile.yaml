@@ -46,7 +46,7 @@ releases:
     needs:
       - prometheus
     values:
-      - ./values/grafana.yaml
+      - ./values/grafana.yaml.gotmpl
 
 environments:
   default:

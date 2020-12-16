@@ -44,15 +44,23 @@ container:
   port: 3000
 
 config:
+  config:
+    grafana.ini: |
+      [users]
+      allow_sign_up = false
+
+      [security]
+      admin_password = {{ .Environment.Values.grafana.password }}
+
   data:
-    datasource.yaml: |-
+    datasource.yaml: |
       apiVersion: 1
       datasources:
       - name: Prometheus
         type: prometheus
+        url: http://{{ .Environment.Values.grafana.prometheus.host }}:{{ .Environment.Values.grafana.prometheus.port }}
         access: proxy
         orgId: 1
-        url: http://prometheus:9090
 
 ingress:
   enabled: false

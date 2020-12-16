@@ -1,0 +1,7 @@
+postgres:
+  username: test
+  password: test
+pact:
+  database: pact
+  username: test
+  password: test

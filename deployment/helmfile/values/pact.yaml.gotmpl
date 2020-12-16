@@ -44,18 +44,17 @@ container:
   port: 9292
 
 config:
-  name: pact-configmap
   data:
     - key: PACT_BROKER_DATABASE_ADAPTER
       value: postgres
     - key: PACT_BROKER_DATABASE_HOST
       value: postgres
     - key: PACT_BROKER_DATABASE_NAME
-      value: pact
+      value:  {{ .Environment.Values.pact.database }}
     - key: PACT_BROKER_DATABASE_USERNAME
-      value: test
+      value:  {{ .Environment.Values.pact.username }}
     - key: PACT_BROKER_DATABASE_PASSWORD
-      value: test
+      value:  {{ .Environment.Values.pact.password }}
 
 ingress:
   enabled: false

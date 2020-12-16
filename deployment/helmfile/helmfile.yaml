@@ -24,16 +24,35 @@ releases:
   - name: postgres
     chart: ./charts/postgres
     values:
-      - ./values/postgres.yaml
+      - ./values/postgres.yaml.gotmpl
 
   # https://hub.docker.com/r/pactfoundation/pact-broker
   - name: pact
     chart: ./charts/pact
+    needs:
+      - postgres
     values:
-      - ./values/pact.yaml
+      - ./values/pact.yaml.gotmpl
 
   # https://hub.docker.com/r/prom/prometheus
   - name: prometheus
     chart: ./charts/prometheus
     values:
       - ./values/prometheus.yaml
+
+  # https://hub.docker.com/r/grafana/grafana/
+  - name: grafana
+    chart: ./charts/grafana
+    needs:
+      - prometheus
+    values:
+      - ./values/grafana.yaml
+
+environments:
+  default:
+    values:
+      - ./environments/default.yaml
+
+  prod:
+    values:
+      - ./environments/prod.yaml

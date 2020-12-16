@@ -45,12 +45,10 @@ container:
 
 config:
   data:
-    - key: POSTGRES_DB
-      value: test
     - key: POSTGRES_USER
-      value: test
+      value: {{ .Environment.Values.postgres.username }}
     - key: POSTGRES_PASSWORD
-      value: test
+      value: {{ .Environment.Values.postgres.password }}
 
 ingress:
   enabled: false

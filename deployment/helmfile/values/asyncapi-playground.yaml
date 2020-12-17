@@ -43,9 +43,8 @@ service:
 container:
   port: 5000
 
-config:
-  data:
-    swagger-config.yaml: |
+  config:
+    async-playground-config.yaml: |
       urls:
         - name: Petstore
           url: "https://petstore.swagger.io/v2/swagger.json"

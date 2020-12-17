@@ -5,4 +5,4 @@ metadata:
   labels:
     {{- include "swagger-asyncapi.labels" . | nindent 4 }}
 data:
-  {{- toYaml .Values.config.data | nindent 2 }}
+  {{- toYaml .Values.container.config | nindent 2 }}

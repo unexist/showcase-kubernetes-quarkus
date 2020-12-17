@@ -41,10 +41,9 @@ service:
   port: 5432
 
 container:
-    port: 5432
+  port: 5432
 
-config:
-  data:
+  config:
     - key: POSTGRES_USER
       value: {{ .Environment.Values.postgres.username }}
     - key: POSTGRES_PASSWORD

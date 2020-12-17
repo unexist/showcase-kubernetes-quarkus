@@ -43,8 +43,7 @@ service:
 container:
   port: 9090
 
-config:
-  data:
+  config:
     prometheus.yml: |
       global:
         scrape_interval: 15s

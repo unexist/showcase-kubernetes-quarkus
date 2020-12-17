@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "grafana.labels" . | nindent 4 }}
 data:
-  {{- toYaml .Values.config.config | nindent 2 }}
+  {{- toYaml .Values.container.config | nindent 2 }}
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -14,4 +14,4 @@ metadata:
   labels:
     {{- include "grafana.labels" . | nindent 4 }}
 data:
-  {{- toYaml .Values.config.data | nindent 2 }}
+  {{- toYaml .Values.container.data | nindent 2 }}

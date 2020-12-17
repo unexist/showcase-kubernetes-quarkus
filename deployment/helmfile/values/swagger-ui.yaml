@@ -41,10 +41,9 @@ service:
   port: 8080
 
 container:
-    port: 8080
+  port: 8080
 
-config:
-  data:
+  config:
     swagger-config.yaml: |
       urls:
         - name: Petstore

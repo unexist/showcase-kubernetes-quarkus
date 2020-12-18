@@ -1,0 +1,19 @@
+apiVersion: acid.zalan.do/v1
+kind: postgresql
+metadata:
+  name: unexist-postgres
+  namespace: default
+spec:
+  databases:
+    foo: unexist # Databasename: Databaseowner
+  numberOfInstances: 2
+  postgresql:
+    version: '11'
+  teamId: unexist
+  users:
+    foo: [] # Just a user named "foo"
+    unexist:
+      - superuser
+      - createdb
+  volume:
+    size: 2Gi

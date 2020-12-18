@@ -25,7 +25,7 @@ public class Todo extends TodoBase {
     }
 
     public void update(final TodoBase base) {
-        this.setDueDate(base.getDueDate());
+        this.setTimeWindow(base.getTimeWindow());
         this.setTitle(base.getTitle());
         this.setDescription(base.getDescription());
         this.setDone(base.getDone());

@@ -24,7 +24,7 @@ public class TodoBase {
     private Boolean done;
 
     @NotNull
-    private DueDate dueDate;
+    private TimeWindow timeWindow;
 
     public String getTitle() {
         return title;
@@ -50,15 +50,11 @@ public class TodoBase {
         this.done = done;
     }
 
-    public DueDate getDueDate() {
-        return dueDate;
+    public TimeWindow getTimeWindow() {
+        return timeWindow;
     }
 
-    public void setDueDate(DueDate dueDate) {
-        this.dueDate = dueDate;
-
-        if (null != dueDate.getStart() && null != dueDate.getDue()) {
-            this.done = dueDate.getStart().isBefore(dueDate.getDue());
-        }
+    public void setTimeWindow(TimeWindow timeWindow) {
+        this.timeWindow = timeWindow;
     }
 }

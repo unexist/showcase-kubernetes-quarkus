@@ -1,4 +1,7 @@
-quarkus-kind-mp-showcase.iml
+syntax: glob
+
+*.iml
+
 target/
 .idea/
 .mvn/

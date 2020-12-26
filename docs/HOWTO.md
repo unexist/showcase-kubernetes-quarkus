@@ -5,7 +5,7 @@
 ```Bash
 mvn io.quarkus:quarkus-maven-plugin:1.9.1.Final:create \
 -DprojectGroupId=dev.unexist.showcase \
--DprojectArtifactId=quarkus-kind-mp-showcase \
+-DprojectArtifactId=quarkus-kubernetes-showcase \
 -DprojectVersion=0.1 \
 -DclassName="dev.unexist.showcase.todo.TodoResource" \
 -Dextensions="health, smyllrye-metrics, quarkus-smallrye-opentracing, quarkus-smallrye-openapi, container-image-jib, kubernetes"
@@ -60,7 +60,7 @@ EOF
 ## Load docker image
 
 ```Bash
-kind load docker-image docker.io/unexist/quarkus-kind-mp-showcase:0.1 --name vanderlande
+kind load docker-image docker.io/unexist/quarkus-kubernetes-showcase:0.1 --name vanderlande
 ```
 
 # Docker
@@ -172,16 +172,16 @@ metadata:
     app.quarkus.io/build-timestamp: 2020-11-05 - 11:39:43 +0000
     nginx.ingress.kubernetes.io/rewrite-target: /$2
   labels:
-    app.kubernetes.io/name: quarkus-kind-mp-showcase
+    app.kubernetes.io/name: quarkus-kubernetes-showcase
     app.kubernetes.io/version: "0.5"
-  name: quarkus-kind-mp-showcase
+  name: quarkus-kubernetes-showcase
 spec:
   rules:
   - host: ""
     http:
       paths:
       - backend:
-          serviceName: quarkus-kind-mp-showcase
+          serviceName: quarkus-kubernetes-showcase
           servicePort: 8080
         path: /todo(/|$)(.*)
 ```
@@ -231,7 +231,7 @@ cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: quarkus-kind-mp-showcase
+  name: quarkus-kubernetes-showcase
   namespace: default
 spec:
   replicas: 1
@@ -244,13 +244,13 @@ spec:
         bb: web
     spec:
       containers:
-      - name: quarkus-kind-mp-showcase
-        image: unexist/quarkus-kind-mp-showcase:0.1
+      - name: quarkus-kubernetes-showcase
+        image: unexist/quarkus-kubernetes-showcase:0.1
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: quarkus-kind-mp-showcase
+  name: quarkus-kubernetes-showcase
   namespace: default
 spec:
   type: NodePort
@@ -270,7 +270,7 @@ cat <<EOF | kubectl delete -f -
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: quarkus-kind-mp-showcase
+  name: quarkus-kubernetes-showcase
   namespace: default
 spec:
   replicas: 1
@@ -283,13 +283,13 @@ spec:
         bb: web
     spec:
       containers:
-      - name: quarkus-kind-mp-showcase
-        image: unexist/quarkus-kind-mp-showcase:0.1
+      - name: quarkus-kubernetes-showcase
+        image: unexist/quarkus-kubernetes-showcase:0.1
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: quarkus-kind-mp-showcase
+  name: quarkus-kubernetes-showcase
   namespace: default
 spec:
   type: NodePort

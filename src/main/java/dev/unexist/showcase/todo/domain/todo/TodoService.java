@@ -1,5 +1,5 @@
 /**
- * @package Quarkus-Kind-MP-Showcase
+ * @package Quarkus-jqAssistant-Showcase
  *
  * @file Todo service and domain service
  * @copyright 2020 Christoph Kappel <christoph@unexist.dev>

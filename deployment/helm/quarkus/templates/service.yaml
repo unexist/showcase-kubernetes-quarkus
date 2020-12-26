@@ -7,15 +7,15 @@ metadata:
     app.quarkus.io/build-timestamp: 2020-12-03 - 16:42:52 +0000
     prometheus.io/scrape: "true"
   labels:
-    app.kubernetes.io/name: quarkus-kind-mp-showcase
+    app.kubernetes.io/name: quarkus-kubernetes-showcase
     app.kubernetes.io/version: "0.8"
-  name: quarkus-kind-mp-showcase
+  name: quarkus-kubernetes-showcase
 spec:
   ports:
   - name: http
     port: 8080
     targetPort: 8080
   selector:
-    app.kubernetes.io/name: quarkus-kind-mp-showcase
+    app.kubernetes.io/name: quarkus-kubernetes-showcase
     app.kubernetes.io/version: "0.8"
   type: ClusterIP

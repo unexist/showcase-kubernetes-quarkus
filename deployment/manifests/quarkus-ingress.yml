@@ -10,6 +10,6 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: quarkus-kind-mp-showcase
+          serviceName: quarkus-kubernetes-showcase
           servicePort: 8080
         path: /todo(/|$)(.*)

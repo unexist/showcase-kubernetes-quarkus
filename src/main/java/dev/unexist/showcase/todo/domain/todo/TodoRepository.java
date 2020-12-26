@@ -1,5 +1,5 @@
 /**
- * @package Quarkus-Kind-MP-Showcase
+ * @package Quarkus-jqAssistant-Showcase
  *
  * @file Todo repository
  * @copyright 2020 Christoph Kappel <christoph@unexist.dev>
@@ -12,8 +12,6 @@
 package dev.unexist.showcase.todo.domain.todo;
 
 import dev.unexist.showcase.todo.infrastructure.stereotypes.Repository;
-import org.eclipse.microprofile.metrics.MetricUnits;
-import org.eclipse.microprofile.metrics.annotation.Gauge;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -69,7 +67,7 @@ public class TodoRepository {
             this.list.set(todo.getId(), todo);
 
             ret = true;
-        } catch (IndexOutOfBoundsException e) {
+        } catch(IndexOutOfBoundsException e) {
             LOGGER.warn("update: id={} not found", todo.getId());
         }
 
@@ -118,14 +116,9 @@ public class TodoRepository {
      *          A {@link Optional} with the result of the lookup
      **/
 
-    public Optional<Todo> findById(int id) {
+    public Optional<Todo> findById(int id ) {
         return this.list.stream()
                 .filter(t -> t.getId() == id)
                 .findFirst();
-    }
-
-    @Gauge(name = "numTodos", unit = MetricUnits.NONE, description = "Number of todos")
-    public int numTodos() {
-        return this.list.size();
     }
 }

@@ -1,5 +1,5 @@
 /**
- * @package Quarkus-Kind-MP-Showcase
+ * @package Quarkus-jqAssistant-Showcase
  *
  * @file Todo base class
  * @copyright 2020 Christoph Kappel <christoph@unexist.dev>
@@ -24,7 +24,7 @@ public class TodoBase {
     private Boolean done;
 
     @NotNull
-    private TimeWindow timeWindow;
+    private DueDate dueDate;
 
     public String getTitle() {
         return title;
@@ -50,11 +50,15 @@ public class TodoBase {
         this.done = done;
     }
 
-    public TimeWindow getTimeWindow() {
-        return timeWindow;
+    public DueDate getDueDate() {
+        return dueDate;
     }
 
-    public void setTimeWindow(TimeWindow timeWindow) {
-        this.timeWindow = timeWindow;
+    public void setDueDate(DueDate dueDate) {
+        this.dueDate = dueDate;
+
+        if (null != dueDate.getStart() && null != dueDate.getDue()){
+            this.done = dueDate.getStart().isBefore(dueDate.getDue());
+        }
     }
 }

@@ -1,5 +1,5 @@
 /**
- * @package Quarkus-Kind-MP-Showcase
+ * @package Quarkus-jqAssistant-Showcase
  *
  * @file Todo class and aggregate root
  * @copyright 2020 Christoph Kappel <christoph@unexist.dev>
@@ -25,7 +25,7 @@ public class Todo extends TodoBase {
     }
 
     public void update(final TodoBase base) {
-        this.setTimeWindow(base.getTimeWindow());
+        this.setDueDate(base.getDueDate());
         this.setTitle(base.getTitle());
         this.setDescription(base.getDescription());
         this.setDone(base.getDone());

@@ -1,5 +1,5 @@
 /**
- * @package Quarkus-Kind-MP-Showcase
+ * @package Quarkus-Kubernetes-Showcase
  *
  * @file Simple health check
  * @copyright 2020 Christoph Kappel <christoph@unexist.dev>

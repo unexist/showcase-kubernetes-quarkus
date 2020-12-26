@@ -1,5 +1,5 @@
 /**
- * @package Quarkus-Kind-MP-Showcase
+ * @package Quarkus-Kubernetes-Showcase
  *
  * @file Todo resource
  * @copyright 2020 Christoph Kappel <christoph@unexist.dev>

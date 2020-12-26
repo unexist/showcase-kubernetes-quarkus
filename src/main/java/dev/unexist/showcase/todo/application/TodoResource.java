@@ -102,7 +102,7 @@ public class TodoResource {
             @APIResponse(responseCode = "404", description = "Todo not found"),
             @APIResponse(responseCode = "500", description = "Server error")
     })
-    public Response getAll(@PathParam("id") int id) {
+    public Response findById(@PathParam("id") int id) {
         Optional<Todo> result = this.todoService.findById(id);
 
         Response.ResponseBuilder response;

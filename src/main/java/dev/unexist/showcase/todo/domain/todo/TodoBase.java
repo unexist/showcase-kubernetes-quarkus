@@ -11,19 +11,19 @@
 
 package dev.unexist.showcase.todo.domain.todo;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 public class TodoBase {
 
-    @NotNull
+    @NotBlank
     private String title;
 
-    @NotNull
+    @NotBlank
     private String description;
 
     private Boolean done;
 
-    @NotNull
+    @NotBlank
     private DueDate dueDate;
 
     public String getTitle() {

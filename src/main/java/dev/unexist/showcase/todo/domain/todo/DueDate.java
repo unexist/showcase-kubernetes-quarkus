@@ -11,11 +11,8 @@
 
 package dev.unexist.showcase.todo.domain.todo;
 
-import dev.unexist.showcase.todo.infrastructure.stereotypes.ValueObject;
-
 import java.time.LocalDate;
 
-@ValueObject
 public class DueDate {
     private LocalDate start;
     private LocalDate due;

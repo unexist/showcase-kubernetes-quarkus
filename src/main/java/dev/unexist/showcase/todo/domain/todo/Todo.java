@@ -11,9 +11,6 @@
 
 package dev.unexist.showcase.todo.domain.todo;
 
-import dev.unexist.showcase.todo.infrastructure.stereotypes.Aggregate;
-
-@Aggregate
 public class Todo extends TodoBase {
     private int id;
 

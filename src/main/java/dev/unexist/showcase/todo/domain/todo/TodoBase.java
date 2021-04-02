@@ -57,7 +57,7 @@ public class TodoBase {
     public void setDueDate(DueDate dueDate) {
         this.dueDate = dueDate;
 
-        if (null != dueDate.getStart() && null != dueDate.getDue()){
+        if (null != dueDate.getStart() && null != dueDate.getDue()) {
             this.done = dueDate.getStart().isBefore(dueDate.getDue());
         }
     }

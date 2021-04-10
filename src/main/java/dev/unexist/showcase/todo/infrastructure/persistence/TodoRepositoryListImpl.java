@@ -17,14 +17,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
-public class TodoRepositoryImpl implements TodoRepository {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TodoRepositoryImpl.class);
+@Named("list_impl")
+public class TodoRepositoryListImpl implements TodoRepository {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TodoRepositoryListImpl.class);
 
     private final List<Todo> list;
 
@@ -32,7 +34,7 @@ public class TodoRepositoryImpl implements TodoRepository {
      * Constructor
      **/
 
-    TodoRepositoryImpl() {
+    TodoRepositoryListImpl() {
         this.list = new ArrayList<>();
     }
 

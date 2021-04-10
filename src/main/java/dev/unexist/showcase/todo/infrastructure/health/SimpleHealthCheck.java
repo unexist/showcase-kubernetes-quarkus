@@ -21,6 +21,13 @@ import javax.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class SimpleHealthCheck implements HealthCheck {
 
+    /**
+     * Call of the healthcheck
+     *
+     * @return
+     *      Reponse of the healthcheck
+     **/
+
     @Override
     public HealthCheckResponse call() {
         return HealthCheckResponse.up("Simple health check");

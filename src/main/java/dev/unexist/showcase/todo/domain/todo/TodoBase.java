@@ -96,7 +96,7 @@ public class TodoBase {
      * Get due state of the entry
      *
      * @return
-     *      Due state of the entry
+     *          Due state of the entry
      **/
 
     public DueDate getDueDate() {
@@ -107,7 +107,7 @@ public class TodoBase {
      * Set due date of the entry
      *
      * @param dueDate
-     *      Due date of the entry
+     *          Due date of the entry
      **/
 
     public void setDueDate(DueDate dueDate) {

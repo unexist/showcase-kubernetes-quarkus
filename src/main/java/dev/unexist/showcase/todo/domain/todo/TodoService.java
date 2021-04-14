@@ -21,7 +21,7 @@ import java.util.Optional;
 public class TodoService {
 
     @Inject
-    @Named("list_impl")
+    @Named("todo_list")
     TodoRepository todoRepository;
 
     /**

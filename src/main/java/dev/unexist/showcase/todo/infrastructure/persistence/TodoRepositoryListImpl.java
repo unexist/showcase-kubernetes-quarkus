@@ -1,7 +1,7 @@
 /**
  * @package Quarkus-Kubernetes-Showcase
  *
- * @file Todo repository
+ * @file Todo list repository
  * @copyright 2020-2021 Christoph Kappel <christoph@unexist.dev>
  * @version $Id$
  *

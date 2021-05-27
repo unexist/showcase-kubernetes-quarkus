@@ -14,6 +14,7 @@ package dev.unexist.showcase.todo.domain.todo;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +22,7 @@ import java.util.Optional;
 public class TodoService {
 
     @Inject
-    @Named("todo_list")
+    @Named("todo_panache")
     TodoRepository todoRepository;
 
     /**
@@ -33,6 +34,7 @@ public class TodoService {
      *          Either {@code true} on success; otherwise {@code false}
      **/
 
+    @Transactional
     public boolean create(TodoBase base) {
         Todo todo = new Todo(base);
 
@@ -50,6 +52,7 @@ public class TodoService {
      *          Either {@code true} on success; otherwise {@code false}
      **/
 
+    @Transactional
     public boolean update(int id, TodoBase base) {
         Optional<Todo> todo = this.findById(id);
         boolean ret = false;
@@ -72,6 +75,7 @@ public class TodoService {
      *          Either {@code true} on success; otherwise {@code false}
      **/
 
+    @Transactional
     public boolean delete(int id) {
         return this.todoRepository.deleteById(id);
     }

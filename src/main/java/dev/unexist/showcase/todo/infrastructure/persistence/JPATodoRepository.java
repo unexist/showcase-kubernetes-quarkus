@@ -23,7 +23,7 @@ import java.util.Optional;
 
 @ApplicationScoped
 @Named("todo_em")
-public class EMTodoRepository implements TodoRepository {
+public class JPATodoRepository implements TodoRepository {
 
     @Inject
     EntityManager entityManager;

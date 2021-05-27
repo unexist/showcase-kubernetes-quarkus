@@ -22,8 +22,8 @@ import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
-@Named("todo_pg")
-public class TodoRepositoryPostgresImpl implements TodoRepository {
+@Named("todo_em")
+public class EMTodoRepository implements TodoRepository {
 
     @Inject
     EntityManager entityManager;

@@ -25,8 +25,8 @@ import java.util.Optional;
 
 @ApplicationScoped
 @Named("todo_list")
-public class TodoRepositoryListImpl implements TodoRepository {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TodoRepositoryListImpl.class);
+public class ListTodoRepository implements TodoRepository {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ListTodoRepository.class);
 
     private final List<Todo> list;
 
@@ -34,7 +34,7 @@ public class TodoRepositoryListImpl implements TodoRepository {
      * Constructor
      **/
 
-    TodoRepositoryListImpl() {
+    ListTodoRepository() {
         this.list = new ArrayList<>();
     }
 

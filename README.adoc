@@ -1,0 +1,3 @@
+= Showcase for kubernetes based on quarkus
+
+This project holds a showcase for various kubernetes related things.

@@ -24,8 +24,7 @@ public class SimpleHealthCheck implements HealthCheck {
     /**
      * Call of the healthcheck
      *
-     * @return
-     *      Reponse of the healthcheck
+     * @return Response of the healthcheck
      **/
 
     @Override

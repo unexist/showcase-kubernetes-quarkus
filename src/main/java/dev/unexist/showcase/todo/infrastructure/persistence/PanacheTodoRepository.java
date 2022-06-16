@@ -44,7 +44,7 @@ public class PanacheTodoRepository implements TodoRepository, PanacheRepository<
     @Override
     @Transactional(Transactional.TxType.MANDATORY)
     public boolean deleteById(int id) {
-        this.deleteById(id);
+        this.findById(id).ifPresent(this::delete);
 
         return true;
     }

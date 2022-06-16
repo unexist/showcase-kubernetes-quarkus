@@ -24,6 +24,16 @@ manifest:
 helm: jib manifest
 	mvn helm:package
 
+# Env
+env-testcontainers:
+	launchctl setenv TESTCONTAINERS_CHECKS_DISABLE true
+	launchctl setenv TESTCONTAINERS_RYUK_DISABLED true
+	launchctl setenv TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE unix://${HOME}/.local/share/containers/podman/machine/podman-machine-default/podman.sock
+
+env-podman:
+	launchctl setenv DOCKER_HOST unix://${HOME}/.local/share/containers/podman/machine/podman-machine-default/podman.sock
+
+
 .PHONY: docs
 docs:
 	mvn -f docs/pom.xml generate-resources

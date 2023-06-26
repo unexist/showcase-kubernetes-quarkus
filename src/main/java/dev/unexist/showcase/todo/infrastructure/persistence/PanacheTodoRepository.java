@@ -16,9 +16,9 @@ import dev.unexist.showcase.todo.domain.todo.TodoRepository;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import io.quarkus.panache.common.Parameters;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Named;
-import javax.transaction.Transactional;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Named;
+import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
